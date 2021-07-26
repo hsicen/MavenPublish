@@ -12,5 +12,6 @@ class MainActivity : AppCompatActivity() {
 
         Toast.info(this, "Hello")
         Log.d("Android")
+        Toast.error(this, "Error")
     }
 }

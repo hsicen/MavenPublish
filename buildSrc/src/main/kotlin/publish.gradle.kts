@@ -9,7 +9,11 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             create<MavenPublication>("release") {
                 // Applies the component for the release buildTypes.
-                from(components["release"])
+                if (plugins.hasPlugin("com.android.library")) {
+                    from(components["release"]) // android-aar include code file and res
+                } else {
+                    from(components["java"]) //java-jar include code file
+                }
 
                 // You can then customize attributes of the publication as shown below.
                 groupId = "io.github.hsicen"
