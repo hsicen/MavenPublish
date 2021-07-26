@@ -20,4 +20,9 @@ object Toast {
         Toast.makeText(ctx, msg, Toast.LENGTH_SHORT).show()
         Log.d("Kotlin")
     }
+
+    fun error(ctx: Context, msg: String) {
+        Toast.makeText(ctx, msg, Toast.LENGTH_SHORT).show()
+        Log.d("Kotlin")
+    }
 }
