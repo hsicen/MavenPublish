@@ -18,5 +18,6 @@ object Toast {
      */
     fun info(ctx: Context, msg: String) {
         Toast.makeText(ctx, msg, Toast.LENGTH_SHORT).show()
+        Log.d("Kotlin")
     }
 }

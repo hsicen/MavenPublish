@@ -11,8 +11,8 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 30
-        versionCode = 2
-        versionName = "1.0.1"
+        versionCode = 3
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -39,6 +39,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.5.0")
     implementation("androidx.appcompat:appcompat:1.3.0")
     implementation("com.google.android.material:material:1.3.0")
+    implementation("com.github.hsicen:Extensions:1.0.6")
 }
 
 afterEvaluate {
@@ -52,7 +53,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = "io.github.hsicen"
                 artifactId = "toast"
-                version = "1.0.1"
+                version = "1.0.2"
 
                 pom {
                     name.set("toast")
@@ -84,17 +85,6 @@ afterEvaluate {
                     }
                 }
             }
-
-            // Creates a Maven publication called "debug".
-            create<MavenPublication>("debug") {
-                // Applies the component for the debug buildTypes.
-                from(components["debug"])
-
-                // You can then customize attributes of the publication as shown below.
-                groupId = "io.github.hsicen"
-                artifactId = "toast"
-                version = "1.0.1"
-            }
         }
 
         repositories {
@@ -111,14 +101,5 @@ afterEvaluate {
 
     signing {
         sign(publishing.publications.getByName("release"))
-        sign(publishing.publications.getByName("debug"))
-    }
-}
-
-task("search") {
-    doFirst {
-        properties.forEach {
-            println("常量: ${it.key} -> ${it.value}")
-        }
     }
 }
