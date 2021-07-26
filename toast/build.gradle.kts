@@ -11,8 +11,8 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 30
-        versionCode = 3
-        versionName = "1.0.2"
+        versionCode = 5
+        versionName = "1.0.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -20,7 +20,7 @@ android {
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
@@ -53,7 +53,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = "io.github.hsicen"
                 artifactId = "toast"
-                version = "1.0.2"
+                version = "1.0.5"
 
                 pom {
                     name.set("toast")
